@@ -10,8 +10,10 @@
       "no_proxy": "${localEnv:no_proxy}"
     },
     "runArgs": [
-      "--shm-size=8.30gb",
-      "--cap-add=SYS_PTRACE",
+      "--shm-size=10gb",
+      "--runtime=nvidia",
+      "--gpus", "all",
+      "--cap-add=SYS_ADMIN",
       "--network", "host"
     ],
     "customizations": {
@@ -50,4 +52,6 @@
         ]
       }
     },
+
+    "postCreateCommand": "pip install -e ."
   }
