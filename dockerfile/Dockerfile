@@ -15,4 +15,3 @@ RUN apt-get -y install build-essential git python3-dev python3-pip libopenexr-de
 RUN pip uninstall xgboost transformer_engine flash_attn -y
 RUN pip install vllm==0.6.5
 
-RUN pip install -e .

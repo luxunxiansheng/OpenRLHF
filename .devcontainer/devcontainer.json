@@ -51,4 +51,6 @@
         ]
       }
     },
+
+    "postCreateCommand": "pip install -e ."
   }
