@@ -22,4 +22,7 @@ else
 fi
 
 cd $HOME
+
+echo "I am ${USER} with UID: ${USER_ID}"
+
 exec gosu ${USER} "$@"

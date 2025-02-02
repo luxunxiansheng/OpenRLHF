@@ -1,6 +1,6 @@
 FROM nvcr.io/nvidia/pytorch:24.02-py3
 
-WORKDIR /app
+
 
 RUN set -eux && \
     apt-get update && \
@@ -15,9 +15,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y tzdata
 
 RUN apt-get -y install build-essential git python3-dev python3-pip libopenexr-dev libxi-dev libglfw3-dev libglew-dev libomp-dev libxinerama-dev libxcursor-dev gdb
 RUN pip uninstall xgboost transformer_engine flash_attn -y
+RUN pip install --upgrade pip
 RUN pip install vllm==0.4.2
 
-COPY /dockerfile/docker-entrypoint.sh .
-RUN chmod a+x docker-entrypoint.sh
 
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
