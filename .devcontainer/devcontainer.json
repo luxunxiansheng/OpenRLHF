@@ -52,5 +52,5 @@
       }
     },
 
-    "postCreateCommand": "pip install -e ."
+    "postCreateCommand":"git config --global user.name 'OrNot-DevContainer' && git config --global user.email 'ornot2008@yahoo.com' && pip install -e . "
   }
