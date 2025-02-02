@@ -1,7 +1,5 @@
 FROM nvcr.io/nvidia/pytorch:24.07-py3
 
-WORKDIR /app
-
 RUN set -eux && \
     apt-get update && \
     apt-get install -y gosu && \
@@ -17,7 +15,4 @@ RUN apt-get -y install build-essential git python3-dev python3-pip libopenexr-de
 RUN pip uninstall xgboost transformer_engine flash_attn -y
 RUN pip install vllm==0.6.5
 
-COPY /dockerfile/docker-entrypoint.sh .
-RUN chmod a+x docker-entrypoint.sh
-
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
+RUN pip install -e .
